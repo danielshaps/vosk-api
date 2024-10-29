@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.vosk.android;
+package org.vosk.demo;
 
 /**
  * Interface to receive recognition results
@@ -33,6 +33,11 @@ public interface RecognitionListener {
      * Called after stream end.
      */
     void onFinalResult(String hypothesis);
+
+    /**
+     * Called on every buffer read used during recognition.
+     */
+    void onRecogBuffer(short[] buffer, int nread);
 
     /**
      * Called when an error occurs.

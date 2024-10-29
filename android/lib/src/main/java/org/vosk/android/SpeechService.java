@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.vosk.android;
+package org.vosk.demo;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
@@ -227,6 +227,8 @@ public class SpeechService {
 
                 if (nread < 0)
                     throw new RuntimeException("error reading audio buffer");
+
+                listener.onRecogBuffer(buffer, nread);
 
                 if (recognizer.acceptWaveForm(buffer, nread)) {
                     final String result = recognizer.getResult();
